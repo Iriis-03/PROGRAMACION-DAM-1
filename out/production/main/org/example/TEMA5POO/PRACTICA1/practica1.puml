@@ -1,0 +1,88 @@
+@startuml
+
+class AppProgramas {
+    +main(String[] args)
+}
+
+class Cadena {
+    -nombre: String
+    -listaProgramas: ArrayList<Programa>
+    +anadirPrograma(programa: Programa)
+    +getNombre(): String
+    +setNombre(nombre: String)
+    +getListaProgramas(): ArrayList<Programa>
+    +setListaProgramas(lista: ArrayList<Programa>)
+    +toString(): String
+}
+
+class Programa {
+    -nombre: String
+    -cadena: Cadena
+    -temporadas: int
+    -listaEmpleados: ArrayList<Empleado>
+    -listaInvitados: ArrayList<Invitado>
+    -director: Empleado
+    +insertarEmpleado(nombre: String, cargo: String, director: Empleado)
+    +insertarInvitado(nombre: String, profesion: String, temporada: int)
+    +invitadosTemporada(temporada: int)
+    +vecesInvitado(nombre: String): int
+    +rastrearInvitado(nombre: String)
+    +buscarInvitado(nombre: String): boolean
+    +invitadoAntes(nombre: String, p1: Programa, p2: Programa)
+    +getNombre(): String
+    +setNombre(nombre: String)
+    +getCadena(): Cadena
+    +setCadena(cadena: Cadena)
+    +getTemporadas(): int
+    +setTemporadas(temporadas: int)
+    +getListaEmpleados(): ArrayList<Empleado>
+    +setListaEmpleados(lista: ArrayList<Empleado>)
+    +getListaInvitados(): ArrayList<Invitado>
+    +setListaInvitados(lista: ArrayList<Invitado>)
+    +getDirector(): Empleado
+    +setDirector(director: Empleado)
+    +toString(): String
+}
+
+class Invitado {
+    -nombre: String
+    -profesion: String
+    -fecha_visita: LocalDate
+    -temporada: int
+    +fechaPrograma(): LocalDate
+    +getNombre(): String
+    +setNombre(nombre: String)
+    +getProfesion(): String
+    +setProfesion(profesion: String)
+    +getFecha_visita(): LocalDate
+    +setFecha_visita(fecha: LocalDate)
+    +getTemporada(): int
+    +setTemporada(temporada: int)
+    +toString(): String
+}
+
+class Empleado {
+    -id: String
+    -nombre: String
+    -cargo: String
+    -director: Empleado
+    -contadorID: static int
+    +Empleado(nombre: String, cargo: String)
+    +getId(): String
+    +setId(id: String)
+    +getNombre(): String
+    +setNombre(nombre: String)
+    +getCargo(): String
+    +setCargo(cargo: String)
+    +getDirector(): Empleado
+    +setDirector(director: Empleado)
+    +toString(): String
+}
+
+Cadena "1" -- "0..*" Programa : contiene
+Programa "1" -- "0..*" Empleado : contiene
+Programa "1" -- "0..*" Invitado : contiene
+Programa "1" --> "1" Empleado : director
+Empleado "0..1" --> "0..1" Empleado : director de
+
+@enduml

@@ -1,15 +1,45 @@
 @startuml
-'https://plantuml.com/sequence-diagram
+package "org.example.TEMA6.PRACTICA1" {
 
-autonumber
+abstract class MetodoPago {
+    +procesarPago(importe : double)
+    +validar() : boolean
+}
 
-== Initialization ==
+class Bizum {
+    -telefono : String
+    -pin : int
+    +procesarPago(importe : double)
+    +validar() : boolean
+}
 
-Alice -> Bob: Authentication Request
-Bob --> Alice: Authentication Response
+class PayPal {
+    -cuenta : String
+    -saldo : double
+    +procesarPago(importe : double)
+    +validar() : boolean
+}
 
-== Repetition ==
+class TarjetaCredito {
+    -nro_tarjeta : String
+    -tipo : String
+    +procesarPago(importe : double)
+    +validar() : boolean
+}
 
-Alice -> Bob: Another authentication Request
-Alice <-- Bob: another authentication Response
+class Tienda {
+    +realizarPago(metodo : MetodoPago)
+    +iniciarPago()
+}
+
+class AppEcommerce {
+    +main(args : String[])
+}
+
+MetodoPago <|-- Bizum
+MetodoPago <|-- PayPal
+MetodoPago <|-- TarjetaCredito
+Tienda --> MetodoPago
+AppEcommerce --> Tienda
+}
 @enduml

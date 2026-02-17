@@ -2,6 +2,14 @@ package org.example.TEMA6.PRACTICA1;
 
 import java.util.Scanner;
 
+/**
+ * Clase que representa el pago mediante tarjeta de crédito.
+ *
+ * Aplica:
+ * - Herencia de MetodoPago.
+ * - Polimorfismo al sobrescribir métodos.
+ * - Abstracción al implementar el comportamiento definido en la clase base.
+ */
 public class TarjetaCredito extends MetodoPago{
 
     private String nro_tarjerta;
@@ -16,11 +24,21 @@ public class TarjetaCredito extends MetodoPago{
 
     }
 
+    /**
+     /**
+     * El usuario una vez introduce por pantalla que desea realizar el pago con tarjeta
+     * e introduce todos los datos correctamente, se utilizaria este método para finalizar con el pago
+     * @param importe importe a pagar
+     */
     @Override
     public void procesarPago(double importe) {
         System.out.println("Procesando pago de " + importe + "€ con tarjeta de crédito VISA");
     }
 
+    /**
+     * Valida el número y tipo de tarjeta introducidos por el usuario
+     * @return true si los datos estan introducidos correctamente, de lo contrario, devolverá un false
+     */
     @Override
     public boolean validar(){
         Scanner read = new Scanner(System.in);
@@ -76,3 +94,4 @@ public class TarjetaCredito extends MetodoPago{
                 '}';
     }
 }
+

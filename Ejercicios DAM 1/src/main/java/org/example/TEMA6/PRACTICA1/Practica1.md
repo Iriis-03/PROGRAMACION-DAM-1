@@ -4,10 +4,9 @@
 
 1. [Intro](#1-intro)
 2. [Estructura de clases](#2-estructura-de-clases)
-
     * Diagrama de clases UML
     * Código de PlantUML
-    * Contenido de las clases (.java)
+    * Clases 
 3. [Programa principal](#3-programa-principal)
 4. [Pruebas](#4-pruebas)
 5. [Entrega](#5-entrega)
@@ -16,13 +15,9 @@
 
 ### 1. Intro
 
-> La práctica consiste en desarrollar una aplicación en **Java** que simula el sistema de pagos de una tienda online de cursos de programación.
+> La práctica consiste en simular el sistema de pagos de una tienda online.
 >
-> Se aplican los principios de la **Programación Orientada a Objetos**:
->
-> * **Abstracción**, mediante la clase abstracta `MetodoPago`.
-> * **Herencia**, en las clases `Bizum`, `PayPal` y `TarjetaCredito`.
-> * **Polimorfismo**, al procesar pagos utilizando referencias del tipo `MetodoPago`.
+
 
 ---
 
@@ -30,7 +25,7 @@
 
 #### Diagrama de clases UML
 
-![](img/ecommerce.png)
+![](./img/Practica1.png)
 
 #### Código de PlantUML
 
@@ -82,57 +77,46 @@ AppEcommerce --> Tienda
 @enduml
 ```
 
-#### Contenido de las clases (.java)
+#### Clases
 
 * Clase *MetodoPago.java*
-  Define la abstracción común de todos los métodos de pago.
 
 * Clase *Bizum.java*
-  Implementa la validación de teléfono y PIN y el procesamiento del pago mediante Bizum.
 
 * Clase *PayPal.java*
-  Valida el correo electrónico y el saldo disponible antes de procesar el pago.
 
 * Clase *TarjetaCredito.java*
-  Comprueba número de tarjeta y tipo permitido antes de realizar el pago.
 
 * Clase *Tienda.java*
-  Gestiona el flujo completo del pago aplicando **polimorfismo** al trabajar con `MetodoPago`.
 
 * Clase *AppEcommerce.java*
-  Contiene el método `main` que inicia la aplicación.
+ 
 
 ---
 
 ### 3. Programa principal
 
-El programa comienza en la clase **AppEcommerce**, que llama al método `iniciarPago()` de **Tienda**.
+El programa se ejecuta desde **AppEcommerce**, que llama al método `iniciarPago()` de la clase **Tienda**.
 
-El flujo es:
+Ahí el usuario introducirá todos los datos y se validarán, para poder realizar una compra online mediante los siguientes sistemas de pago:
 
-1. El usuario selecciona el método de pago.
-2. Se validan los datos según el tipo elegido.
-3. Se solicita el importe.
-4. Se procesa el pago mostrando un mensaje en consola.
+* **Bizum**
+* **Tarjeta de crédito**
+* **PayPal**
+
 
 ---
 
 ### 4. Pruebas
 
-Se han probado los siguientes casos:
-
-* Selección correcta de cada método de pago.
-* Validaciones incorrectas de teléfono, tarjeta o correo.
-* Introducción de importes positivos.
-* Cancelación del pago cuando la validación falla.
-
-Todos los métodos funcionan según lo esperado.
+* Camino feliz(Validar que todo esté introducido correctamente)
+* Introducción de algún dato incorrecto de teléfono, tarjeta o correo.
 
 ---
 
 ### 5. Entrega
 
-* [x] Código fuente en GitHub
+* [x] Link GitHub
 * [x] Documentación Javadoc
-* [x] README en Markdown
-* [x] Pruebas de funcionamiento
+* [x] Markdown
+* [x] Pruebas 

@@ -3,8 +3,14 @@ package org.example.TEMA6.PRACTICA1;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * Clase para gestionar tanto el método de pago, como validar datos y procesar el pago
+ */
 public class Tienda{
 
+    /**
+     * El método realizarPago pide al usuario que introduzca el importe
+     */
     public static void realizarPago(MetodoPago metodo) {
         Scanner read = new Scanner(System.in);
         System.out.println("Introduce el importe a pagar:");
@@ -12,6 +18,10 @@ public class Tienda{
         metodo.procesarPago(importe_pagar);
     }
 
+    /**
+     * Pregunta al usuario que método de pago va a utilizar
+     * y dependiendo del método introducido, va a validar ciertos datos u otros.
+     */
     public static void iniciarPago(){
         Scanner read = new Scanner(System.in);
 
@@ -49,3 +59,4 @@ public class Tienda{
         }
     }
 }
+

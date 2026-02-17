@@ -3,8 +3,14 @@ package org.example.TEMA6.PRACTICA1;
 import java.util.Random;
 import java.util.Scanner;
 
+
 public class Bizum extends MetodoPago{
 
+    /**
+     * Clase hija de MetodoPago(Herencia) que representa el sistema de pago mediante bizum.
+     * Se hace uso del polimorfismo en procesarPago y validar.
+     * Sobreescribe el método abstrato de su madre, procesarPago
+     */
     private String telefono;
     private int pin;
 
@@ -17,10 +23,20 @@ public class Bizum extends MetodoPago{
 
     }
 
+    /**
+     * El usuario una vez introduce por pantalla que desea realizar el pago con bizum
+     * e introduce todos los datos correctamente, se utilizaria este método para finalizar con el pago
+     * @param importe importe a pagar
+     */
     @Override
     public void procesarPago(double importe) {
         System.out.println("Procesando pago de " + importe + "€ con Bizum");
     }
+
+    /**
+     * Valida el teléfono y el pin el PIN introducidos por el usuario
+     * @return true si los datos estan introducidos correctamente, de lo contrario, devolverá un false
+     */
     @Override
     public boolean validar(){
         Random aleatorio = new Random();
@@ -72,3 +88,5 @@ public class Bizum extends MetodoPago{
                 '}';
     }
 }
+
+

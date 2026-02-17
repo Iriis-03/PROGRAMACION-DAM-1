@@ -6,6 +6,7 @@ import java.util.Scanner;
 public class TarjetaCredito extends MetodoPago{
 
     /**
+     *
      * Clase hija de MetodoPago(Herencia) que representa el sistema de pago mediante TajetaCredito.
      * Se hace uso del polimorfismo en procesarPago y validar.
      * Sobreescribe el método abstrato de su madre, procesarPago

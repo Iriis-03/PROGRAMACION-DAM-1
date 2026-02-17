@@ -2,15 +2,14 @@ package org.example.TEMA6.PRACTICA1;
 
 import java.util.Scanner;
 
-/**
- * Clase que representa el pago mediante tarjeta de crédito.
- *
- * Aplica:
- * - Herencia de MetodoPago.
- * - Polimorfismo al sobrescribir métodos.
- * - Abstracción al implementar el comportamiento definido en la clase base.
- */
 public class TarjetaCredito extends MetodoPago{
+
+        /**
+     *
+     * Clase hija de MetodoPago(Herencia) que representa el sistema de pago mediante Paypal.
+     * Se hace uso del polimorfismo en procesarPago y validar.
+     * Sobreescribe el método abstrato de su madre, procesarPago
+     */
 
     private String nro_tarjerta;
     private String tipo;

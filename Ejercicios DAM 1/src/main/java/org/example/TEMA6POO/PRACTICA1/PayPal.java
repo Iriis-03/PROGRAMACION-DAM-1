@@ -1,6 +1,5 @@
-package org.example.TEMA6.PRACTICA1;
+package org.example.TEMA6POO.PRACTICA1;
 
-import java.util.Random;
 import java.util.Scanner;
 
 public class PayPal extends MetodoPago{

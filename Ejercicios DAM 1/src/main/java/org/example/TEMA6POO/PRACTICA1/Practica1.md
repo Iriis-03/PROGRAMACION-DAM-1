@@ -25,7 +25,7 @@
 
 #### Diagrama de clases UML
 
-![](./img/Practica1.png)
+![](imgractica1.png)
 
 #### Código de PlantUML
 

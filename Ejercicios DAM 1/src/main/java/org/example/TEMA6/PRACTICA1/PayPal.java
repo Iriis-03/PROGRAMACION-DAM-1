@@ -3,13 +3,14 @@ package org.example.TEMA6.PRACTICA1;
 import java.util.Random;
 import java.util.Scanner;
 
-/**
- * Clase que representa el método de pago PayPal.
- *
- * Utiliza herencia, polimorfismo y abstracción al extender MetodoPago
- * e implementar su propia validación y procesamiento del pago.
- */
 public class PayPal extends MetodoPago{
+
+        /**
+     *
+     * Clase hija de MetodoPago(Herencia) que representa el sistema de pago mediante Paypal.
+     * Se hace uso del polimorfismo en procesarPago y validar.
+     * Sobreescribe el método abstrato de su madre, procesarPago
+     */
 
     private String cuenta;
     private double saldo;

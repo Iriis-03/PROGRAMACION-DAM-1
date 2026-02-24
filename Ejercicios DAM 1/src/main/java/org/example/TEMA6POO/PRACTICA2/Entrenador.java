@@ -1,6 +1,6 @@
 package org.example.TEMA6POO.PRACTICA2;
 
-public class Entrenador extends MutxamelFC{
+public class Entrenador extends MutxamelFC implements AccionesDeportivas{
 
     private Equipos equipo;
     private String formacionPreferida;
@@ -12,11 +12,11 @@ public class Entrenador extends MutxamelFC{
     }
 
     public void planificarEntrenamiento(){
-        System.out.println("El entrenador" + getNombre() + "está planificando el entrenamiento de " + getNombre() + " del equipo, " + equipo);
+        System.out.println("El entrenador " + getNombre() + " está planificando el entrenamiento del equipo, " + equipo);
     }
 
     public void hacerCambios(){
-        System.out.println("El entrenador" + getNombre() + "ha cambiado a " + getNombre() + " por " + getNombre());
+        System.out.println("El entrenador " + getNombre() + " ha cambiado a " + getNombre() + " por " + getNombre());
     }
 
     public Equipos getEquipo() {
@@ -41,5 +41,30 @@ public class Entrenador extends MutxamelFC{
                 "equipo=" + equipo +
                 ", formacionPreferida='" + formacionPreferida + '\'' +
                 '}';
+    }
+
+    @Override
+    public void entrenar() {
+        System.out.println("El entrenador " + getNombre() + " está entrenando al equipo, " + equipo);
+    }
+
+    @Override
+    public void jugarPartido(String rival) {
+
+    }
+
+    @Override
+    public void concentrarse() {
+
+    }
+
+    @Override
+    public void viajar(String ciudad) {
+
+    }
+
+    @Override
+    public void celebrarGolf() {
+
     }
 }

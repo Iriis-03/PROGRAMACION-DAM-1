@@ -38,4 +38,19 @@ public class Acompanante extends MutxamelFC{
                 ", parentesco='" + parentesco + '\'' +
                 '}';
     }
+
+    @Override
+    public void concentrarse() {
+
+    }
+
+    @Override
+    public void viajar(String ciudad) {
+
+    }
+
+    @Override
+    public void celebrarGolf() {
+
+    }
 }

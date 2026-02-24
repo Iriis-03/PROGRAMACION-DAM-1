@@ -1,6 +1,6 @@
 package org.example.TEMA6POO.PRACTICA2;
 
-public class Jugador extends MutxamelFC{
+public class Jugador extends MutxamelFC implements AccionesDeportivas{
 
     private Equipos categoria;
     private int dorsal;
@@ -56,5 +56,30 @@ public class Jugador extends MutxamelFC{
                 ", dorsal=" + dorsal +
                 ", posicion=" + posicion +
                 '}';
+    }
+
+    @Override
+    public void concentrarse() {
+        System.out.println("El jugador " + getNombre() + " se está concentrando");
+    }
+
+    @Override
+    public void viajar(String ciudad) {
+
+    }
+
+    @Override
+    public void celebrarGolf() {
+
+    }
+
+    @Override
+    public void entrenar() {
+
+    }
+
+    @Override
+    public void jugarPartido(String rival) {
+
     }
 }

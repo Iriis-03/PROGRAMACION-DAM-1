@@ -12,7 +12,7 @@ public class Masajista extends MutxamelFC{
     }
 
     public void darMasaje(Jugador jugador){
-        System.out.println("El masajista" + getNombre() + " está dando un masaje a " + jugador.getNombre());
+        System.out.println("El masajista " + getNombre() + " está dando un masaje a " + jugador.getNombre());
     }
 
     public String getTitulacion() {
@@ -37,5 +37,20 @@ public class Masajista extends MutxamelFC{
                 "titulacion='" + titulacion + '\'' +
                 ", anosExperiencia=" + anosExperiencia +
                 '}';
+    }
+
+    @Override
+    public void concentrarse() {
+
+    }
+
+    @Override
+    public void viajar(String ciudad) {
+
+    }
+
+    @Override
+    public void celebrarGolf() {
+
     }
 }

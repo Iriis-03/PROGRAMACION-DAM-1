@@ -1,6 +1,6 @@
 package org.example.TEMA6POO.PRACTICA2;
 
-public abstract class MutxamelFC {
+public abstract class MutxamelFC implements FuncionesIntegrantes{
 
     private String nombre;
     private int edad;

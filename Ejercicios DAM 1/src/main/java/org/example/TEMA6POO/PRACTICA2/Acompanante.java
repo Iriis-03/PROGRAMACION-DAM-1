@@ -12,7 +12,7 @@ public class Acompanante extends MutxamelFC{
     }
 
     public void animarEquipo(){
-        System.out.println("¡VAMOS " + getNombre() + "!");
+        System.out.println("¡VAMOS!");
     }
 
     public Jugador getIntegrante() {
@@ -41,16 +41,16 @@ public class Acompanante extends MutxamelFC{
 
     @Override
     public void concentrarse() {
-
+        System.out.println("El acompañante" + getNombre() + " está muy concentrado");
     }
 
     @Override
     public void viajar(String ciudad) {
-
+        System.out.println("El acompañante " + getNombre() + "viaja con el equipo a " + ciudad);
     }
 
     @Override
     public void celebrarGolf() {
-
+        System.out.println("El acompañante" + getNombre() + " celebra el gol de " + getNombre());
     }
 }

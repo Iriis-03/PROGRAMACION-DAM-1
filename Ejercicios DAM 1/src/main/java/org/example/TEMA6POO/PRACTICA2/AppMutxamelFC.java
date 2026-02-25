@@ -1,7 +1,8 @@
 package org.example.TEMA6POO.PRACTICA2;
 
-public class AppMutxamelFC {
+import java.util.ArrayList;
 
+public class AppMutxamelFC {
     static void main(String[] args) {
 
         // crear varios jugadores para el equipo SENIOR
@@ -32,26 +33,70 @@ public class AppMutxamelFC {
 
         // concentrarse()
         david.concentrarse();
+        iris.concentrarse();
+        jacobo.concentrarse();
+
         // entrenar()
         carlos.entrenar();
+
         // darMasaje() a algún jugador
         maribel.darMasaje(david);
+
         // viajar() a Madrid
         david.viajar("Madrid");
         iris.viajar("Madrid");
         jacobo.viajar("Madrid");
+
         // planificarEntrenamiento()
         carlos.planificarEntrenamiento();
-        // entrenar()
-        // descansar()
-        // calentar()
-        // jugarPartido()
-        // animarEquipo()
-        // hacerCambios()
-        // marcarGol()
-        // celebrarGol()
-        // darMasaje() a varios jugadores
-        // viajar() a M
 
+        // entrenar()
+        david.entrenar();
+        iris.entrenar();
+        jacobo.entrenar();
+
+        // descansar()
+        david.descansar();
+        iris.descansar();
+        jacobo.descansar();
+
+        // calentar()
+        david.calentar();
+        iris.calentar();
+        jacobo.calentar();
+
+        // jugarPartido()
+        david.jugarPartido("Real Madrid");
+        iris.jugarPartido("Real Madrid");
+        jacobo.jugarPartido("Real Madrid");
+
+        // animarEquipo()
+        adri.animarEquipo();
+
+        // hacerCambios()
+        carlos.hacerCambios();
+
+        // marcarGol()
+        david.marcarGol();
+        iris.marcarGol();
+
+        // celebrarGol()
+        david.celebrarGolf();
+        iris.celebrarGolf();
+
+        // darMasaje() a varios jugadores
+        maribel.darMasaje(david);
+        maribel.darMasaje(iris);
+        maribel.darMasaje(jacobo);
+
+        // viajar() a Mutxamel
+        david.viajar("Mutxamel");
+        iris.viajar("Mutxamel");
+        jacobo.viajar("Mutxamel");
+
+        // descansar()
+        david.descansar();
+        iris.descansar();
+        jacobo.descansar();
     }
 }

@@ -5,7 +5,16 @@ import java.util.Scanner;
 
 public class AppMantenimiento {
 
+    /**
+     * App parea gestionar el mantenimiento del club Mutxamel FC.
+     * Añade jugadores, los modifica, crea acompañantes y consulta equipos.
+     */
+
     static ArrayList<Jugador> listaJugadores = new ArrayList<>();
+
+    /**
+     * Scanner para leer todos los datos introducidos del usuario por teclado.
+     */
     static Scanner read = new Scanner(System.in);
 
     static void main(String[] args) {
@@ -33,6 +42,10 @@ public class AppMantenimiento {
 
     }
 
+    /**
+     * Método para el menú principal y que va a submenus dependiendo del método elegido.
+     * @param opcion opción que elige el usuario
+     */
     public static void menu(String opcion) {
         switch (opcion) {
             case "1":
@@ -48,6 +61,10 @@ public class AppMantenimiento {
         }
     }
 
+    /**
+     * Submenú para el mantenimiento de los jugadores.
+     * Puedes añadir, modificar datos de jugadores existentes o crear acompañantes de jugadores SENIOR.
+     */
     public static void mantenimientoJugadores() {
 
         String opcion;
@@ -86,6 +103,11 @@ public class AppMantenimiento {
         } while (!opcion.equals("X"));
     }
 
+    /**
+     * Método que crea un nuevo jugador.
+     * Pide al usuario que introduzca por teclado los datos del jugador y lo añade a la lista.
+     * Utiliza la excepcion DorsalYaAsignadoException si el dorsal ya está en otro jugador.
+     */
     private static void crearJugador() {
 
         try {
@@ -110,6 +132,10 @@ public class AppMantenimiento {
         }
     }
 
+    /**
+     * Método para modificar los datos de un jugador existente.
+     * Muestra al usuario la lista de jugadores y los modifica sus datos
+     */
     private static void modificarJugador() {
 
         System.out.println("=== Mantenimiento de Jugadores. Modificar datos de jugador existente ===");
@@ -173,6 +199,10 @@ public class AppMantenimiento {
         }
     }
 
+    /**
+     * Método para crear acompañantes a los jugadores de categoría SENIOR.
+     * Pide al usuario que introduzca por teclado el nombre del acompañante y lo relaciona con el jugador correspondiente.
+     */
     private static void crearAcompanantes() {
 
         for (Jugador jugador : listaJugadores) {
@@ -185,6 +215,10 @@ public class AppMantenimiento {
         }
     }
 
+    /**
+     * Método para consultar los equipos.
+     * Muestra los equipos y pide al usuario elegir uno.
+     */
     public static void consultarEquipos() {
         System.out.println("=== Consulta de Equipos ===");
 

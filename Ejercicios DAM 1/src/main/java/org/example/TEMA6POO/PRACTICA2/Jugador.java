@@ -49,28 +49,14 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
     }
 
     public void setDorsal(int dorsal) {
-
-        try {
-            //Se comprueba si el dorsal ya está asignado a otro jugador
-            for (Jugador jugador : listaJugadores) {
-                if (jugador != this && jugador.getCategoria() == this.categoria && jugador.getDorsal() == dorsal) {
-                    throw new DorsalYaAsignadoException();
-                }
+        // Se comprueba si el dorsal ya está asignado a otro jugador del mismo equipo
+        for (Jugador jugador : AppMantenimiento.listaJugadores) {
+            if (jugador != this && jugador.getCategoria().equals(this.categoria) && jugador.getDorsal() == dorsal) {
+                throw new DorsalYaAsignadoException(this.categoria);
             }
-
-            this.dorsal = dorsal; //Si son diferentes, se asigna al jugador el dorsal introducido
-
-            //Si el jugador no está, se añade a la lista
-            if (!listaJugadores.contains(this)) {
-                listaJugadores.add(this);
-            }
-
-            System.out.println("El dorsal " + dorsal + " se ha asignado correctamente al jugador " + getNombre());
-
-        } catch (DorsalYaAsignadoException exception) {
-            System.out.println(exception.getMessage());
-            this.dorsal = 0; //En caso de error (si el dorsal coincide con el de otro jugador) se desasigna el dorsal al jugador
         }
+        this.dorsal = dorsal; // Si pasa la validación, se asigna el dorsal
+        System.out.println("El dorsal " + dorsal + " se ha asignado correctamente al jugador " + getNombre());
     }
 
     public Posiciones getPosicion() {
@@ -83,11 +69,11 @@ public class Jugador extends MutxamelFC implements AccionesDeportivas{
 
     @Override
     public String toString() {
-        return "Jugador{" +
-                "categoria=" + categoria +
-                ", dorsal=" + dorsal +
-                ", posicion=" + posicion +
-                '}';
+        return "Nombre: " + getNombre()
+                + ", Edad: " + getEdad()
+                + ", Categoría: " + categoria
+                + ", Dorsal: " + dorsal
+                + ", Posición: " + posicion;
     }
 
     @Override

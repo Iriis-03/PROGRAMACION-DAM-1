@@ -1,0 +1,109 @@
+@startuml
+
+' ===================== INTERFACES =====================
+
+interface AccionesDeportivas {
+    + entrenar()
+    + jugarPartido(rival : String)
+}
+
+interface FuncionesIntegrantes {
+    + concentrarse()
+    + viajar(ciudad : String)
+    + celebrarGolf()
+}
+
+' ===================== CLASE ABSTRACTA =====================
+
+abstract class MutxamelFC {
+    - nombre : String
+    - edad : int
+    + getNombre() : String
+    + setNombre(nombre : String)
+    + getEdad() : int
+    + setEdad(edad : int)
+}
+
+MutxamelFC ..|> FuncionesIntegrantes
+
+' ===================== ENUMS =====================
+
+enum Equipos {
+    BENJAMIN
+    ALEVIN
+    INFANTIL
+    CADETE
+    JUVENIL
+    SENIOR
+}
+
+enum Posiciones {
+    PORTERO
+    DEFENSA
+    CENTROCAMPISTA
+    DELANTERO
+}
+
+' ===================== CLASES =====================
+
+class Jugador {
+    - categoria : Equipos
+    - dorsal : int
+    - posicion : Posiciones
+    + calentar()
+    + descansar()
+    + marcarGol()
+    + entrenar()
+    + jugarPartido(rival : String)
+}
+
+class Entrenador {
+    - equipo : Equipos
+    - formacionPreferida : String
+    + planificarEntrenamiento()
+    + hacerCambios()
+    + entrenar()
+    + jugarPartido(rival : String)
+}
+
+class Masajista {
+    - titulacion : String
+    - anosExperiencia : int
+    + darMasaje(jugador : Jugador)
+}
+
+class Acompanante {
+    - integrante : Jugador
+    - parentesco : String
+    + animarEquipo()
+}
+
+' ===================== HERENCIA =====================
+
+Jugador --|> MutxamelFC
+Entrenador --|> MutxamelFC
+Masajista --|> MutxamelFC
+Acompanante --|> MutxamelFC
+
+' ===================== IMPLEMENTACIONES =====================
+
+Jugador ..|> AccionesDeportivas
+Entrenador ..|> AccionesDeportivas
+
+' ===================== RELACIONES =====================
+
+Acompanante --> Jugador : acompaña
+Masajista --> Jugador : masajea
+
+' ===================== EXCEPCIONES =====================
+
+class DorsalYaAsignadoException
+class FormatoIncorrectoException
+
+DorsalYaAsignadoException --|> RuntimeException
+FormatoIncorrectoException --|> RuntimeException
+
+Jugador ..> DorsalYaAsignadoException : usa
+Entrenador ..> FormatoIncorrectoException : usa
+
+@enduml

@@ -11,6 +11,7 @@ public class Colecciones {
 
         Stack<Integer> pila = new Stack<>();
 
+
         pila.push(2);
         pila.push(9);
         pila.push(12);

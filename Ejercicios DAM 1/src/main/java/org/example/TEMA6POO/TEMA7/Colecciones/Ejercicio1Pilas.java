@@ -24,7 +24,7 @@ public class Ejercicio1Pilas {
 
         System.out.println("En la pila hay " + pila_letras.size() + " elementos");
 
-        System.out.println("El último elemento de la pila");
+        System.out.println("El último elemento de la pilas");
 
 
     }

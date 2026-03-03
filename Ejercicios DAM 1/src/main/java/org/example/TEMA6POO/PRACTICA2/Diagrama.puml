@@ -107,3 +107,4 @@ Jugador ..> DorsalYaAsignadoException : usa
 Entrenador ..> FormatoIncorrectoException : usa
 
 @enduml
+

@@ -1,4 +1,4 @@
-package org.example.TEMA6POO.TEMA7.Colecciones;
+package org.example.TEMA7.Colecciones;
 
 import java.util.ArrayList;
 import java.util.Stack;

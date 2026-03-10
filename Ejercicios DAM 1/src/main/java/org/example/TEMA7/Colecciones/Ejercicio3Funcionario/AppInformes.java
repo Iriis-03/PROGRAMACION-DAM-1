@@ -32,11 +32,10 @@ public class AppInformes {
         System.out.println("-----------------------------------------------------------------");
 
         pila.push(new Informe(9348, "Tarea 73", "EMPRESARIAL"));
+        System.out.println(pila.peek());
         pila.push(new Informe(6374, "Tarea 57", "PERSONAL"));
         System.out.println(pila.peek());
         pila.push(new Informe(6374, "Tarea 57", "PERSONAL"));
-
-        System.out.println(pila.peek());
         System.out.println(pila.peek());
 
         int tareasSinRepetir = tareasSinRepetir(pila);

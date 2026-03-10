@@ -16,14 +16,16 @@ public class Ejercicio5Colas {
         for (int i = 0; i < palabra.length(); i++) {
             cola_palindromo.offer(palabra.charAt(i));
         }
-
+        boolean esPalindroma = true;
         while (!cola_palindromo.isEmpty()){
-            if (cola_palindromo.pollFirst() == cola_palindromo.pollLast()){
-                System.out.println("La palabra introducida es palíndroma");
-            } else {
+            if (cola_palindromo.pollFirst() != cola_palindromo.pollLast()){
                 System.out.println("La palabra introducida no es palíndroma");
+                esPalindroma = false;
                 break;
             }
+        }
+        if (esPalindroma){
+            System.out.println("La palabra introducida es palíndroma");
         }
     }
 }

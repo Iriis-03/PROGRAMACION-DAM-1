@@ -11,13 +11,14 @@ public class Ejercicio3Mapas {
 
     static void main(String[] args) {
 
-        System.out.println("**** REGISTRO DE TEMPERATURAS ****");
+        System.out.println("*** REGISTRO DE TEMPERATURAS ***");
 
-        while (true){
-            System.out.println("Elige una opción [insertar, actualizar, consultar, ver todas, salir]");
+        while(true) {
+            System.out.print("Elige una opción [insertar, actualizar, consultar, ver todas, salir]:");
+
             String opcion = read.nextLine().toLowerCase();
 
-            switch (opcion){
+            switch (opcion) {
                 case "insertar":
                     insertar();
                     break;
@@ -31,44 +32,53 @@ public class Ejercicio3Mapas {
                     verTodas();
                     break;
                 case "salir":
-                    return;
+                    break;
                 default:
-                    System.out.println("No existe la opción. Vuelve a elegir una...");
+                    System.out.println("No existe. Elige otra.");
+
             }
 
-            System.out.println("*** mapa temporal ***");
-            for (Map.Entry<String, Double> mapa2 : mapa.entrySet()){
-                System.out.println(mapa2.getKey() + " - " + mapa2.getValue());
-            }
-        }
-    }
-
-    public static void insertar(){
-        System.out.println("Introduce los datos (ciudad-temperatura): ");
-        String[] ciudad = read.nextLine().split("/");
-
-        mapa.put(ciudad[0],Double.valueOf(ciudad[1]));
-
-    }
-
-    public static void actualizar(){
-
-        System.out.println("¿Qué ciudad deseas actualizar?");
-        String[] actualizar_ciudad = read.nextLine().split("/");
-
-        if (!mapa.get(actualizar_ciudad[0]).equals(Double.valueOf(actualizar_ciudad[1]))){
             System.out.println();
-        } else {
-            insertar();
         }
 
-    }
 
-    public static void consultar(){
 
     }
 
-    public static void verTodas(){
+    public static void insertar() {
+        System.out.println("Introduce los nuevos datos (ciudad-temperatura): ");
+        String[] ciudad = read.nextLine().split("@");
+        //San Juan@-15
 
+        mapa.put(ciudad[0], Double.valueOf(ciudad[1]));
+
+
+    }
+
+    public static void actualizar() {
+
+        System.out.println("Introduce los nuevos datos (ciudad-temperatura): ");
+        String[] ciudad = read.nextLine().split("@");
+
+        if (mapa.containsKey(ciudad[0]))  {
+            mapa.put(ciudad[0], Double.valueOf(ciudad[1]));
+        }
+        else System.out.println("No existe la ciudad");
+
+    }
+
+    public static void consultar() {
+        System.out.println("Introduce la ciudad a consultar: ");
+        String ciudad = read.nextLine();
+        System.out.println("Temperatura en "+ ciudad + ": " + mapa.get(ciudad) + "의");
+    }
+
+    public static void verTodas() {
+        System.out.println("Registro de temperaturas:");
+        for (Map.Entry<String, Double> mapita : mapa.entrySet()) {
+
+            System.out.println(mapita.getKey() + ": " + mapita.getValue() +"의");
+
+        }
     }
 }

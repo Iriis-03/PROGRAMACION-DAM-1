@@ -1,0 +1,53 @@
+@startuml
+
+abstract class Pista {
+  tipo : TipoTechado
+  id : int
+}
+
+class Padel {
+  paredes : TipoParedes
+}
+
+class Tenis {
+  superficie : TipoSuperficie
+}
+
+class Usuario {
+  nombre : String
+  id : int
+}
+
+class Reserva {
+  usuario : Usuario
+  pista : Pista
+  fechaPartido : LocalDateTime
+}
+
+enum TipoParedes {
+  CRISTAL
+  CEMENTO
+}
+
+enum TipoSuperficie {
+  TIERRA_BATIDA
+  CEMENTO
+  HIERBA
+}
+
+enum TipoTechado {
+  INDOOR
+  EXTERIOR
+}
+
+Padel --|> Pista
+Tenis --|> Pista
+
+Reserva o-- Usuario
+Reserva o-- Pista
+
+Pista --> TipoTechado
+Padel --> TipoParedes
+Tenis --> TipoSuperficie
+
+@enduml

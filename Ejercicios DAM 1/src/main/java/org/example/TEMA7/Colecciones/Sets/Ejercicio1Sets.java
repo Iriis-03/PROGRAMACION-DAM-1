@@ -1,4 +1,4 @@
-package org.example.TEMA7.Colecciones;
+package org.example.TEMA7.Colecciones.Sets;
 
 import java.util.Arrays;
 import java.util.LinkedHashSet;

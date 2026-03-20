@@ -2,7 +2,7 @@ package org.example.TEMA7.Colecciones.comparables;
 
 import java.time.LocalTime;
 
-public class Invitado{
+public class Invitado implements Comparable<Invitado>{
 
     private LocalTime hora;
     private Integer edad;
@@ -47,21 +47,21 @@ public class Invitado{
                 '}';
     }
 
-//    @Override
-//    public int compareTo(Invitado invitado) {
-//
-//       int comparar = hora.compareTo(invitado.getHora());
-//
-//       if (comparar != 0){
-//           return comparar;
-//       }
-//
-//       comparar = edad.compareTo(invitado.getEdad());
-//
-//        if (comparar != 0){
-//            return comparar;
-//        }
-//
-//        return nombre.compareTo(invitado.getNombre());
-//    }
+    @Override
+    public int compareTo(Invitado invitado) {
+
+       int comparar = hora.compareTo(invitado.getHora());
+
+       if (comparar != 0){
+           return comparar;
+       }
+
+       comparar = edad.compareTo(invitado.getEdad());
+
+        if (comparar != 0){
+            return comparar;
+        }
+
+        return nombre.compareTo(invitado.getNombre());
+    }
 }

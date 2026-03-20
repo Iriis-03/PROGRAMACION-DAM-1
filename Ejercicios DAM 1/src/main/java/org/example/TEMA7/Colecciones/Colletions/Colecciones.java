@@ -1,4 +1,4 @@
-package org.example.TEMA7.Colecciones;
+package org.example.TEMA7.Colecciones.Colletions;
 
 import java.util.ArrayList;
 import java.util.Stack;
@@ -10,7 +10,6 @@ public class Colecciones {
         ArrayList<Integer> lista = new ArrayList<>();
 
         Stack<Integer> pila = new Stack<>();
-
 
         pila.push(2);
         pila.push(9);

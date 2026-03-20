@@ -1,4 +1,4 @@
-package org.example.TEMA7.Colecciones;
+package org.example.TEMA7.Colecciones.Colas;
 
 import java.util.Deque;
 import java.util.LinkedList;

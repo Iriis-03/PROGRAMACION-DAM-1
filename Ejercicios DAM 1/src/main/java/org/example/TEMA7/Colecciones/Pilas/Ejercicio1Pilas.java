@@ -1,6 +1,5 @@
-package org.example.TEMA7.Colecciones;
+package org.example.TEMA7.Colecciones.Pilas;
 
-import java.util.ArrayList;
 import java.util.Stack;
 
 public class Ejercicio1Pilas {

@@ -16,8 +16,6 @@ public class Cliente {
         this.promociones = false;
     }
 
-
-
     public void crearPedido(){ //Se crea un pedido a través de este método
         pedido = new Pedido();
     }

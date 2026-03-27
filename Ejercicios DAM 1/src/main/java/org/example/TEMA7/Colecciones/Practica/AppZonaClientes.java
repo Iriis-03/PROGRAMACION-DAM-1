@@ -62,7 +62,7 @@ public class AppZonaClientes {
 
         while (anadir_producto.equalsIgnoreCase("S")) {
 
-            imprimirProductos(); // SOLO imprime
+            imprimirProductos(); // Solo imprime
 
             System.out.println("===============================================");
             System.out.print("Elige un producto: ");

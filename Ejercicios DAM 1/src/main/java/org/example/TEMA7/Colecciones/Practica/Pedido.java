@@ -22,7 +22,7 @@ public class Pedido {
     }
 
     public void aplicarPromo3x2(){
-        for (Producto producto : pedido.keySet()) { //Se recorre solo la llave, en este caso, el producto
+        for (Producto producto : pedido.keySet()) { //Se recorre solo la clave, en este caso, el producto
 
             int cantidad = pedido.get(producto); // Se obtiene la cantidad del producto
             int productoGratis = cantidad / 3; //Se calcula las veces que se aplica la promo del 3x2

@@ -12,6 +12,10 @@
 
 package org.example.APUNTES_RECU_CLAVE_CTRL_F;
 
+//import lombok.Getter;
+//import lombok.Setter;
+//import lombok.ToString;
+
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -30,7 +34,9 @@ import java.util.*;
 // CUANDO USARLO: siempre que haya DISTINTOS TIPOS de un mismo
 //   concepto (Votante→Nacional/Extranjero, Bañista→Adulto/Niño/Invitado)
 
-@Getter @Setter @ToString
+@Getter
+@Setter
+@ToString
 abstract class EntidadBase {
 
     // La profe pone los atributos compartidos aquí

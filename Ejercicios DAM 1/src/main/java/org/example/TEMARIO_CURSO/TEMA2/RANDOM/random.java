@@ -23,4 +23,5 @@ public class random {
         double numero5 = Math.random() * 10 + 1;
         System.out.println(numero5);
     }
+
 }

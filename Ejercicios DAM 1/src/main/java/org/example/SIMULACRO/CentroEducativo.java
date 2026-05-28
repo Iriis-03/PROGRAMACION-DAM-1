@@ -1,15 +1,10 @@
 package org.example.SIMULACRO;
 
-import org.example.APUNTES_RECU_CLAVE_CTRL_F.ResumenClave;
-import org.example.TEMARIO_CURSO.TEMA2.RANDOM.random;
-
-import javax.print.Doc;
 import java.util.*;
 
-public class CentroEducativo {
+import static org.example.SIMULACRO.AppHuelga.listaDocentes;
 
-    static Random aleatorio = new Random();
-    static LinkedHashSet<Docente> listaDocentes = new LinkedHashSet<>();
+public class CentroEducativo {
 
     private String nombre;
     private int plantillaTotal;
@@ -23,27 +18,56 @@ public class CentroEducativo {
         this.huelguistas = huelguistas;
     }
 
+    public CentroEducativo() {
+    }
 
-    public static void generarHuelguistasAleatorios(){
 
+    public static void generarHuelguistasAleatorios(int cantidad){
 
-
-        Set<Integer> set_dni = new HashSet<>();
+        Random aleatorio = new Random();
 
         String letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String numeros = "0123456789";
 
-        StringBuilder dni = new StringBuilder();
+        // generar 10 docentes
+        while (listaDocentes.size() < 10) {
 
-        for (int i = 0; i < 8; i++) {
-            dni.append(aleatorio.nextInt(10));
+            // GENERAR DNI
+            StringBuilder dni = new StringBuilder();
+
+            // 8 números
+            for (int i = 0; i < 8; i++) {
+                dni.append(numeros.charAt(
+                        aleatorio.nextInt(numeros.length())
+                ));
+            }
+
+            // letra final
+            dni.append(letras.charAt(
+                    aleatorio.nextInt(letras.length())
+            ));
+
+            // días aleatorios entre 1 y 8
+            int diasHuelga = aleatorio.nextInt(8) + 1;
+
+            // crear docente
+            Docente docente = new Docente(dni.toString(), diasHuelga, EstadoDocente.EN_HUELGA);
+
+            // el Set evita repetidos
+            listaDocentes.add(docente);
         }
 
+        // mostrar resultado
+        for (Docente docente : listaDocentes) {
+            System.out.println(docente);
+        }
     }
 
-    public static void mostrarHuelguistasActuales(){
 
-        int contadorDocentes = 0;
+
+    public void mostrarHuelguistasActuales(){
+
+        int contadorDocentes = 1;
 
         for (Docente docente : listaDocentes){
             System.out.println(contadorDocentes + ". DNI: " + docente.getDni() + " - días huelga: " + docente.getDiasHuelga() + " - estado: " + docente.getEstado());
@@ -56,23 +80,42 @@ public class CentroEducativo {
         System.out.println("Validando...");
 
         for (Docente docente : listaDocentes){
-            if (docente.getDni().isEmpty()){
-                System.out.println("El docente no existe como huelguista.");
-                return null;
-            } else {
-                System.out.println("El docente no existe como huelguista.");
+            if (docente.getDni().equals(dni)){
                 return docente;
             }
         }
+
         return null;
     }
 
-    public static void sortearServiciosMinimos(){
+    public Docente sortearServiciosMinimos(){
 
+        Random aleatorio = new Random();
+        int tamanyo = listaDocentes.size();
+        int contador = 0;
+
+        int premiado = aleatorio.nextInt(tamanyo);
+
+        for (Docente docente : listaDocentes){
+
+            if (contador == premiado){
+                docente.asignarServiciosMinimos();
+                return docente;
+            }
+            contador++;
+        }
+        return new Docente();
     }
 
-    public static void limpiarRegistro(){
+    public void limpiarRegistro(){
+        Iterator<Docente> iterator = listaDocentes.iterator();
 
+        while (iterator.hasNext()) {
+            Docente docente = iterator.next();
+            if (docente.getEstado().equals(EstadoDocente.ACTIVO)) {
+                iterator.remove(); // forma segura de eliminar durante iteración
+            }
+        }
     }
 
     public String getNombre() {
@@ -117,15 +160,4 @@ public class CentroEducativo {
                 '}';
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (o == null || getClass() != o.getClass()) return false;
-        CentroEducativo that = (CentroEducativo) o;
-        return plantillaTotal == that.plantillaTotal && Double.compare(descuentoSalarialDiario, that.descuentoSalarialDiario) == 0 && Objects.equals(aleatorio, that.aleatorio) && Objects.equals(nombre, that.nombre) && Objects.equals(huelguistas, that.huelguistas);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(aleatorio, nombre, plantillaTotal, descuentoSalarialDiario, huelguistas);
-    }
 }

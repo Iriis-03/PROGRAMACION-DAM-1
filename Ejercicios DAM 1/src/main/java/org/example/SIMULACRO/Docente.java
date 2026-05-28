@@ -18,6 +18,14 @@ public class Docente {
         this.estado = estado;
     }
 
+    public Docente() {
+
+    }
+
+    public void asignarServiciosMinimos(){
+        setEstado(EstadoDocente.SERVICIOS_MINIMOS);
+    }
+
     public String getDni() {
         return dni;
     }
@@ -49,5 +57,20 @@ public class Docente {
                 ", diasHuelga=" + diasHuelga +
                 ", estado=" + estado +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Docente)) return false;
+
+        Docente docente = (Docente) o;
+
+        return dni.equals(docente.dni);
+    }
+
+    @Override
+    public int hashCode() {
+        return dni.hashCode();
     }
 }

@@ -81,6 +81,7 @@ public class TicketMutxa {
 
     public static Set<Usuario> getUsuariosRegistrados(){
 
+        return Set.of();
     }
 
     public static void verEventos(){
@@ -89,5 +90,6 @@ public class TicketMutxa {
 
     public static Evento getEvento(int posicion){
 
+        return null;
     }
 }

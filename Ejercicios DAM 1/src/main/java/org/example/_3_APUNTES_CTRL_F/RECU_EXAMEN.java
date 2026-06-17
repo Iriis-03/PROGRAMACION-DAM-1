@@ -70,6 +70,29 @@ abstract class EntidadBase {
         System.out.println("Valora tu experiencia: ");
         return teclado.nextInt();
     }
+
+    public Comparable<Object> getIdentificador() {
+        return null;
+    }
+
+    public String getAtributoExtra() {
+        return "";
+    }
+
+    public void setProcesado(boolean b) {
+    }
+
+    public String getPoblacion() {
+        return "";
+    }
+
+    public String getNombre() {
+        return "";
+    }
+
+    public boolean isProcesado() {
+        return false;
+    }
 }
 
 // Subclase concreta A - tiene su propio atributo identificador

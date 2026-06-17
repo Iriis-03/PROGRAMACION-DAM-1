@@ -1,6 +1,6 @@
 package org.example._3_APUNTES_CTRL_F;
 
-public class ResumenClave {
+public class IMPORTANTE_RESUMEN_CLAVE {
 // ============================================================
 // RESUMEN RÁPIDO – COLECCIONES SEGÚN LOS ENUNCIADOS
 // ============================================================

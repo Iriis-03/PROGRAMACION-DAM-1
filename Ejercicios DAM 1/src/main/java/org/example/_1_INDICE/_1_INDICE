@@ -1,0 +1,24 @@
+=== ÍNDICE RÁPIDO ===
+(léelo 30 segundos antes de empezar, no lo uses para perder tiempo durante)
+
+SI EL EJERCICIO TRATA DE...              → MIRA EN...
+-------------------------------------------------------------
+sintaxis básica / tipos / operadores     → _2_TEMARIO/UP1_Java_Basico
+if / switch / while / for                → _2_TEMARIO/UP2_Estructuras_Control
+arrays / matrices                        → _2_TEMARIO/UP3_Estructuras_Datos
+métodos / parámetros / recursividad      → _2_TEMARIO/UP4_Prog_Modular
+clases / objetos / constructores         → _2_TEMARIO/UP5_POO_Intro
+herencia / polimorfismo / interfaces     → _2_TEMARIO/UP6_POO_Avanzado
+ArrayList / HashMap / lambdas / streams  → _2_TEMARIO/UP7_Colecciones_Funcional
+
+NO SÉ NI POR DÓNDE EMPEZAR               → _3_APUNTES_CTRL_F (Ctrl+Shift+F con la palabra clave)
+QUIERO UN EJERCICIO PARECIDO YA RESUELTO → _4_EJERCICIOS
+QUIERO VER UN EXAMEN IGUAL AL DE HOY     → _5_EXAMENES_AÑOS_ANTERIORES
+
+-------------------------------------------------------------
+ANTES DE ENTREGAR CADA EJERCICIO:
+[ ] ¿Compila sin subrayado rojo?
+[ ] ¿Lo he ejecutado al menos una vez con datos de prueba?
+[ ] ¿Casos límite probados (0, vacío, negativo)?
+[ ] ¿Llaves y paréntesis cierran todos?
+[ ] ¿Nombres de variables tienen sentido (no x, x2, x3)?

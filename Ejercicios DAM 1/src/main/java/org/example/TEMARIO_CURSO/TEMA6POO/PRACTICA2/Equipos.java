@@ -1,6 +1,0 @@
-package org.example.TEMARIO_CURSO.TEMA6POO.PRACTICA2;
-
-public enum Equipos {
-
-    BENJAMIN, ALEVIN, INFANTIL, CADETE, JUVENIL, SENIOR
-}

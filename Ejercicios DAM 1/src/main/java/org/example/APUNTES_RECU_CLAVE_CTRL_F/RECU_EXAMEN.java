@@ -447,28 +447,81 @@ class EjemplosColecciones {
 // CUANDO USARLO: cuando piden validar formato de un String
 
 class EjemplosValidacion {
+// -----------------------------------------------------------------------------------------
+    // 1. LOS CLÁSICOS DE EXAMEN (Copia y pega el que te pida)
+    // -----------------------------------------------------------------------------------------
 
-    // [BUSCAR: validarDocumento · matches · formato · 8 números y una letra]
-    public static boolean validarDocumento(String documento) {
-        // DNI: 8 dígitos + 1 letra mayúscula → "12345678X"
-        return documento.matches("[0-9]{8}[A-Z]");
-        // NIE: igual formato en los exámenes de la profe → "[0-9]{8}[A-Z]"
-        // Matrícula formato 1234BCD → "[0-9]{4}[A-Z]{3}"
-        // Formato 8 caracteres alfanuméricos → "[A-Za-z0-9]{8}"
-    }
+    // [BUSCAR: regex DNI · regex NIE · 8 numeros y 1 letra]
+    // Ejemplo: "12345678X" (8 dígitos del 0 al 9 seguidos de una letra mayúscula)
+//    boolean esDNI = entrada.matches("[0-9]{8}[A-Z]");
 
-    // Ejemplos de regex que usa la profe:
-    // [0-9]{8}[A-Z]        → 8 números + 1 letra (DNI/NIE)
-    // [0-9]{4}[A-Z]{3}     → 4 números + 3 letras (matrícula)
-    // [A-Za-z0-9]{8}       → 8 caracteres alfanuméricos
-    // .*[^F]F              → termina en F y solo hay una F (squash)
+    // [BUSCAR: regex matricula · 4 numeros y 3 letras]
+    // Ejemplo: "1234BCD" (4 números y 3 letras mayúsculas)
+//    boolean esMatricula = entrada.matches("[0-9]{4}[A-Z]{3}");
 
-    // Uso en el bucle:
-    // if (!validarDocumento(documento)) {
-    //     System.out.println("El DNI/NIE no es correcto");
-    //     continue; // vuelve al inicio del bucle
-    // }
+    // [BUSCAR: regex matricula sin vocales]
+    // Ejemplo: "1234FGH" (Evita las vocales como en el sistema real español, patrón típico de la profe)
+//    boolean esMatriculaReal = entrada.matches("[0-9]{4}[BCDFGHJKLMNPQRSTVWXYZ]{3}");
+
+    // [BUSCAR: regex codigo examen · formato prefijo]
+    // Ejemplo: "PROD-123" (Empieza exactamente por PROD-, seguido de 3 números)
+//    boolean esCodigoProducto = entrada.matches("PROD-[0-9]{3}");
+
+    // [BUSCAR: regex telefono · 9 numeros]
+    // Ejemplo: "612345678" (Debe empezar por 6, 7, 8 o 9 y tener 8 dígitos más -> Total 9 números)
+//    boolean esTelefono = entrada.matches("[6-9][0-9]{8}");
+
+    // ^[0-9*]+ -> Empieza por uno o más caracteres que pueden ser números o asteriscos.
+    // #$       -> Termina obligatoriamente con un único '#'.
+    // Como el '#' está fuera de los corchetes y al final, garantizamos que SOLO esté ahí.
+
+    // -----------------------------------------------------------------------------------------
+    // 2. GUÍA DE SÍMBOLOS PARA MONTAR TU PROPIA REGEX (Diccionario rápido)
+    // -----------------------------------------------------------------------------------------
+        /*
+           [0-9]    -> Cualquier número del 0 al 9.
+           [a-z]    -> Cualquier letra minúscula.
+           [A-Z]    -> Cualquier letra mayúscula.
+           [a-zA-Z] -> Cualquier letra (da igual mayúscula o minúscula).
+           [A-Za-z0-9] -> Cualquier carácter alfanumérico.
+           [^0-9]   -> Cualquier carácter que NO sea un número (el ^ dentro de corchetes niega).
+           .        -> Cualquier carácter individual (un punto significa "lo que sea").
+        */
+
+
+    // -----------------------------------------------------------------------------------------
+    // 3. CUANTIFICADORES (Para decirle CUÁNTAS VECES se repite lo anterior)
+    // -----------------------------------------------------------------------------------------
+        /*
+           {X}      -> Exactamente X veces. Ejemplo: [0-9]{4} (4 números exactos).
+           {X,Y}    -> Entre X y Y veces. Ejemplo: [a-z]{3,5} (entre 3 y 5 letras minúsculas).
+           {X,}     -> Como mínimo X veces. Ejemplo: [0-9]{2,} (2 o más números).
+
+           * -> 0 o más veces (opcional y sin límite).
+           +        -> 1 o más veces (mínimo obligatorio una vez).
+           ?        -> 0 o 1 vez (es decir, ese carácter es opcional).
+        */
+
+
+    // -----------------------------------------------------------------------------------------
+    // 4. CASOS COMPLEJOS (Trampas de recuperaciones)
+    // -----------------------------------------------------------------------------------------
+
+    // [BUSCAR: regex contraseña fuerte · longitud variable]
+    // Ejemplo: Al menos 8 caracteres alfanuméricos obligatorios
+//    boolean esPasswordValido = entrada.matches("[A-Za-z0-9]{8,}");
+
+    // [BUSCAR: regex terminar en · termina con la letra F]
+    // Ejemplo: Cualquier texto largo pero que acabe obligatoriamente en 'F' (ejercicio Squash del Github)
+    // El '.*' significa "cualquier texto de cualquier longitud delante"
+//    boolean terminaEnF = entrada.matches(".*F");
+
+    // [BUSCAR: regex email simple]
+    // Ejemplo: texto@texto.com -> "letras/números + @ + letras + . + letras(de 2 a 4)"
+    // Alerta: El punto '.' es especial en regex. Para buscar un punto real hay que poner \\.
+//    boolean esEmail = entrada.matches("[A-Za-z0-9.]+@[A-Za-z0-9]+\\.[A-Za-z]{2,4}");
 }
+
 
 
 // ╔══════════════════════════════════════════════════════════╗
@@ -740,10 +793,10 @@ class AppEjemplo {
 
             // PASO 4: Validar formato
             // [BUSCAR: validarDocumento · matches · continuar · continue]
-            if (!EjemplosValidacion.validarDocumento(dato)) {
-                System.out.println("El formato no es correcto");
-                continue; // vuelve al inicio del bucle
-            }
+//            if (!EjemplosValidacion.validarDocumento(dato)) {
+//                System.out.println("El formato no es correcto");
+//                continue; // vuelve al inicio del bucle
+//            }
 
             // PASO 5: Crear objeto según tipo
             // [BUSCAR: new Nacional · new Extranjero · DNI · NIE]
